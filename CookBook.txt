@@ -13,5 +13,7 @@ mean: Mean of the signal
 std: Standard deviation of the signal
 
 For example Fourier.Body.Acc.mean.X represents the FFT of the body linear acceleration signal mean along the X axis. 
-
 Moreover, the first two columns "Subject" and "Activity" describe the subject tracked and the activity performed respectively.
+
+Note that the value shown in aggregateData.csv represent the average of the variables described above aggregated by Activity and Subject, that is, in the example Fourier.Body.Acc.mean.X the value shown
+in aggregateData.csv represent the average of the FFT of the body linear acceleration signal mean along the X axis. (Yes, there are averages of means and standard deviation)

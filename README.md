@@ -24,9 +24,9 @@ exist (unzipped) in your working directory. Otherwise you need to run setwd("fol
 
 The data follows the principles of tidiness
 
-*Each variable forms a column.
-*Each observation forms a row.
-*Each type of observational unit forms a table.
+* Each variable forms a column.
+* Each observation forms a row.
+* Each type of observational unit forms a table.
 
 Finally, the aggregateData.csv file can be loaded in R through the command
 
