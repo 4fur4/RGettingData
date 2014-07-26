@@ -8,7 +8,7 @@ features <- data.frame(read.table("UCI HAR Dataset/features.txt"))
 test.data <- data.frame(read.table("UCI HAR Dataset/test/X_test.txt", col.names = features$V2))
 
 ##Filter test data columns by those containing mean or std 
-test.data <- test.data[,grep("mean|std",names(test.data))]
+test.data <- test.data[,grep("mean[^Freq]|std",names(test.data))]
 
 ##Load test data activities
 test.activities <- data.frame(read.table("UCI HAR Dataset/test/Y_test.txt", col.names = "Activity"))
@@ -24,7 +24,7 @@ train.activities <- data.frame(read.table("UCI HAR Dataset/train/Y_train.txt", c
 train.subject <- data.frame(read.table("UCI HAR Dataset/train/subject_train.txt", col.names = "Subject"))
 
 ##Filter train data columns by those containing mean or std 
-train.data <- train.data[,grep("mean|std",names(train.data))]
+train.data <- train.data[,grep("mean[^Freq]|std",features$V2)]
 
 ##Paste test data + test activities + test subject together
 test <- cbind(test.subject,test.activities,test.data)
@@ -42,4 +42,17 @@ data$Activity <- revalue(as.character(data$Activity),
 ##Relabel feature names
 names(data)<-sub("^t", "Time.",names(data))
 names(data)<-sub("^f", "Fourier.",names(data))
+names(data)<-gsub("Body", "Body.",names(data))
+names(data)<-gsub("Gravity", "Gravity.",names(data))
+names(data)<-gsub("Acc", "Acc.",names(data))
+names(data)<-gsub("Jerk", "Jerk.",names(data))
+names(data)<-gsub("Gyro", "Gyro.",names(data))
+names(data)<-gsub("Mag", "Mag.",names(data))
+names(data)<-gsub("Mag", "Mag.",names(data))
+names(data)<-gsub("\\.\\.\\.", "\\.",names(data))
+names(data)<-gsub("\\.\\.", "\\.",names(data))
+names(data)<-gsub("\\.$", "",names(data))
 
+
+dataResult<- aggregate(. ~ Activity + Subject,data = data,FUN=mean)
+write.csv(dataResult, file = "aggregateData.csv", row.names = FALSE)
