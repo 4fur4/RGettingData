@@ -55,4 +55,4 @@ names(data)<-gsub("\\.$", "",names(data))
 
 
 dataResult<- aggregate(. ~ Activity + Subject,data = data,FUN=mean)
-write.csv(dataResult, file = "aggregateData.csv", row.names = FALSE)
+write.csv(dataResult, file = "aggregateData.txt", row.names = FALSE)
