@@ -4,9 +4,9 @@ RGettingData
 Repo containing the course project from "Getting and Cleaning Data" of Coursera. Files in the repo:
 
 * README.md: Repo description
-* CookBook.txt: variables/features description
+* CodeBook.txt: variables/features description
 * run_analysis.R: Main script performing course project task
-* aggregateData.csv: independent tidy data set from the original UCI HAR data set with the average of each variable for each activity and each subject
+* aggregateData.txt: independent tidy data set from the original UCI HAR data set with the average of each variable for each activity and each subject
 
 
 The main script run_analysis.R works as follows:
@@ -30,4 +30,4 @@ The data follows the principles of tidiness
 
 Finally, the aggregateData.csv file can be loaded in R through the command
 
-aggregatedData<-read.csv("aggregateData.csv")
+aggregatedData<-read.csv("aggregateData.txt")
